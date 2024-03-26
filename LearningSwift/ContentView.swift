@@ -15,14 +15,16 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .fill(.white)
+                .fill(._1989)
                 .ignoresSafeArea()
             VStack {
                 ForEach(list, id:\.self) {
                     thing in Text(thing)
+                        .font(.headline)
+                        .foregroundStyle(.fearless)
                 }
-                Circle()
-                    .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+//                Circle()
+//                    .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
                 Text(text)
                     .font(.largeTitle)
                     .fontWeight(.black)
@@ -31,6 +33,7 @@ struct ContentView: View {
                     print("hello world")
                 }
                 TextField("Text", text: $string)
+                    .textFieldStyle(.roundedBorder)
                 Button(action: {
                     print(string)
                     print("hello lightning!")
@@ -39,7 +42,7 @@ struct ContentView: View {
                     list.append(string)
                     print(list)
                 }, label: {
-                    Image(systemName: "bolt.heart.fill")
+                    Image(systemName: "bolt")
                         .resizable()
                         .scaledToFit()
                         .frame(height: 100)
@@ -47,7 +50,7 @@ struct ContentView: View {
                 })
                 .buttonStyle(.borderedProminent)
                 .buttonBorderShape(.capsule)
-                .tint(.orange) // change color for a button, use tint, everything else uses forgroundStyle
+                .tint(.purple) // change color for a button, use tint, everything else uses forgroundStyle
                 
             }
         }
